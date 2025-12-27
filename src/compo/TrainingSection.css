@@ -1,0 +1,80 @@
+/* TrainingSection.css */
+
+.training-container {
+    background-color: #f0f8ff; /* Alice Blue */
+    padding: 80px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+.training-header {
+    margin-bottom: 60px;
+}
+
+.training-header h2 {
+    color: #1a202c;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.training-header p {
+    color: #4a5568;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+/* Grid Layout */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 50px 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Individual Card */
+.service-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px); /* Hover effect */
+}
+
+/* Icon Styling */
+.icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.service-card h3 {
+    color: #2d3748;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.service-card p {
+    color: #718096;
+    line-height: 1.6;
+    max-width: 280px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .training-header h2 {
+        font-size: 1.8rem;
+    }
+}
