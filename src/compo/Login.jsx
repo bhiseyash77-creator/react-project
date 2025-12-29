@@ -6,9 +6,17 @@ import axios from "axios";
 function Login({ setIsLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+   const Login = axios.create({
+  baseURL: import.meta.env.VITE_API_BASE_URL,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
   const navigate = useNavigate();
 
   const handleLogin = async () => {
+    
 
     if (!username || !password) {
       alert("Please enter username and password");
@@ -16,8 +24,8 @@ function Login({ setIsLogin }) {
     }
 
     try {
-      const res = await axios.post(
-        "http://localhost:8787/api/login",
+      const res = await Login.post(
+        "/api/login",
         { username, password }
       );
 

@@ -4,6 +4,12 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function Register() {
+   const Register = axios.create({
+  baseURL: import.meta.env.VITE_API_BASE_URL,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
   const [owner, setOwner] = useState({
     username: "",
     password: "",
@@ -13,7 +19,7 @@ function Register() {
 
   const handleRegister = async () => {
     try {
-      await axios.post("http://localhost:8787/api/register", owner);
+      await Register.post("/api/register", owner);
       alert("Owner Registered Successfully");
       navigate("/login");
     } catch {

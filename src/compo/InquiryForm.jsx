@@ -4,7 +4,16 @@ import axios from "axios";
 import { motion } from "framer-motion";
 import "./InquiryForm.css";
 
+
+
 function InquiryForm() {
+  const InquiryForm = axios.create({
+  baseURL: import.meta.env.VITE_API_BASE_URL,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
   const [inquiry, setInquiry] = useState({
     name: "",
     mobile: "",
@@ -52,13 +61,13 @@ function InquiryForm() {
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length === 0) {
-      try {
-        await axios.post("http://localhost:8787/api/inquiry", inquiry);
+       try {
+        await InquiryForm.post("/api/inquiry", inquiry);
         alert("Inquiry Submitted Successfully");
         setInquiry({ name: "", mobile: "", course: "" });
-      } catch (err) {
-        alert(err.response?.data || "Inquiry already exists");
-      }
+       } catch (err) {
+         alert(err.response?.data || "Inquiry already exists");
+       }
     }
   };
 

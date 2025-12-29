@@ -2,10 +2,17 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 function Pending() {
+
+  const Pending = axios.create({
+  baseURL: import.meta.env.VITE_API_BASE_URL,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
   const [pending, setPending] = useState([]);
 
   const fetchPending = async () => {
-    const res = await axios.get("http://localhost:8787/api/inquiries/pending");
+    const res = await Pending.get("/api/inquiries/pending");
     setPending(res.data);
   };
 
@@ -14,7 +21,7 @@ function Pending() {
   }, []);
 
   const completeInquiry = async (id) => {
-    await axios.put(`http://localhost:8787/api/inquiry/${id}/complete`);
+    await Pending.put(`/api/inquiry/${id}/complete`);
     fetchPending();
   };
 
