@@ -1,69 +1,97 @@
 
 .header {
-  background-color: #f8f9fa;
-  padding: 50px 0;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  padding: 8px 0;       
   text-align: center;
 }
 
 .header h1 {
-  font-weight: 700;
+  font-weight: 600;
+  font-size: 22px;     
+  margin: 0;             
 }
 
 .header p {
   color: #6c757d;
+  font-size: 14px;
+  margin: 2px 0 0;       
 }
+
 
 
 .student-card {
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  border-radius: 12px;
   text-align: center;
   border: none;
-  height: 550px;      
+  height: 490px;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  background: #fff;
 }
+
+
+.student-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 6px;
+  width: 100%;
+  background: linear-gradient(90deg, #0d6efd, #20c997, #ffc107);
+}
+
+/* Hover Animation */
+.student-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 16px 30px rgba(0,0,0,0.18);
+}
+
 
 .student-img {
   width: 80%;
-  height: 400px;      
-  object-fit: cover;   
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  margin: 25px auto 10px;
+  transition: transform 0.4s ease;
 }
+
+/* Image Zoom on Hover */
+.student-card:hover .student-img {
+  transform: scale(1.05);
+}
+
 
 .card-body {
   padding: 15px;
-  flex-grow: 1;      
+  flex-grow: 1;
 }
 
 .card-body h5 {
   font-weight: 700;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 }
 
 .card-body .role {
   color: #6c757d;
+  font-size: 14px;
   margin: 5px 0;
 }
 
 .card-body .company {
   font-weight: 600;
-  margin: 5px 0;
+  margin: 6px 0;
+  color: #0d6efd;
 }
 
 .card-body .package {
-  color: green;
+  color: #198754;
   font-weight: 700;
-  margin: 5px 0;
-}
-.student-img {
-  width: 80%;
-  height: 400px;
-  object-fit: cover;
-  border-radius: 8px;
-
- 
-  display: block;
-  margin: 0 auto;
+  margin: 6px 0;
+  font-size: 16px;
 }
