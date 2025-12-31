@@ -15,12 +15,22 @@ function Naavbar({ isLogin, setIsLogin }) {
   return (
     <nav className="navbar navbar-dark bg-dark px-3">
       <Link className="navbar-brand d-flex align-items-center" to="/">
-        <img
-          src="https://www.irisesoft.in/wp-content/uploads/2024/08/logo-irise-1-300x120.png"
-          alt="MyApp Logo"
-          height="50"
-          className="me-2"
-        />
+    <img
+  src="https://www.irisesoft.in/wp-content/uploads/2024/08/logo-irise-1-300x120.png"
+  alt="MyApp Logo"
+  height="60"
+  
+  // style={{
+  //   width: "80px",
+  //   backgroundColor: "white",
+  //   padding: "4px",
+  //   objectFit: "contain",
+  //   borderRadius: "6px"
+  // }}
+  className="me-2"
+/>
+
+
       </Link>
 
       <div>
