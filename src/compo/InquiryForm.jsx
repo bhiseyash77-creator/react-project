@@ -93,8 +93,14 @@ function InquiryForm() {
           <li>✔ Mock Interviews</li>
           <li>✔ Placement Assistance</li>
           <li>✔ Top IT Company Guidance</li>
+          
         </ul>
       </motion.div>
+      <ul>
+        <li><h5>Scan the QR code</h5></li>
+        <li><h5>and confirm the admission</h5></li>
+         <img src="/images/frame.png" width="200" />
+      </ul>
 
       {/* RIGHT SIDE */}
       <motion.div
