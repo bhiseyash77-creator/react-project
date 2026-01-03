@@ -46,13 +46,13 @@ function Footer() {
             </p>
 
             <div className="d-flex gap-4">
-              <a href="#" className="social-icon text-primary fs-4">
+              <a href="https://www.facebook.com/" className="social-icon text-primary fs-4">
                 <i className="bi bi-facebook"></i>
               </a>
               <a href="https://www.instagram.com/irise_software/" className="social-icon text-danger fs-4">
                 <i className="bi bi-instagram"></i>
               </a>
-              <a href="#" className="social-icon text-info fs-4">
+              <a href="https://telegram.org/" className="social-icon text-info fs-4">
                 <i className="bi bi-twitter"></i>
               </a>
             </div>

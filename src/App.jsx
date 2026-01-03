@@ -16,6 +16,9 @@ import TopPlacedStudents from "./compo/TopPlacedStudents";
 import InquiryForm from "./compo/InquiryForm";
 import Contact from "./compo/Contact";
 import Card from "./compo/Card";
+import AdmissionForm from "./compo/AdmissionForm";
+import OwnerDashboard from "./compo/OwnerDashboard";
+import Start from "./compo/Start";
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
@@ -36,6 +39,9 @@ function App() {
             <Route path="/inq" element ={<InquiryForm />}/>
            <Route path="/contact" element={<Contact/>}/>
            <Route path="/card" element={<Card/>}/>
+           <Route path="/owner" element={<OwnerDashboard/>}/>
+           <Route path="/admission" element={<AdmissionForm/>}/>
+           <Route path="start" element={<Start/>}/>
 
             {/* Protected Routes */}
             {isLogin && <Route path="/add" element={<Add />} />}
