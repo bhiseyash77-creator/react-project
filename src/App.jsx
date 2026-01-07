@@ -39,7 +39,7 @@ function App() {
             <Route path="/inq" element ={<InquiryForm />}/>
            <Route path="/contact" element={<Contact/>}/>
            <Route path="/card" element={<Card/>}/>
-           <Route path="/owner" element={<OwnerDashboard/>}/>
+           
            <Route path="/admission" element={<AdmissionForm/>}/>
           
 
@@ -48,6 +48,7 @@ function App() {
             {isLogin && <Route path="/add/:id" element={<Add />} />}
             {isLogin && <Route path="/pending" element={<Pending />} />}
             {isLogin && <Route path="/students" element={<Students />} />}
+             {isLogin && <Route path="/owner" element={<OwnerDashboard/>}/>}
           </Routes>
         </div>
 

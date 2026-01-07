@@ -1,91 +1,67 @@
 
+
 import axios from "axios";
 import { useState } from "react";
 import "./AdmissionForm.css";
 
 export default function AdmissionForm() {
-  const AdmissionForm = axios.create({
+  const token = new URLSearchParams(window.location.search).get("token");
+    const AdmissionForm = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
   // headers: {
   //   "Content-Type": "application/json",
   // },
 });
-  const token = new URLSearchParams(window.location.search).get("token");
 
   const [form, setForm] = useState({
-    name: "",
-    email: "",
-    mobile: "",
-    screenshot: null,
+    name: "", email: "", mobile: "",
+    course: "", college: "", education: "",
+    passoutYear: "", address: "", utrNo: ""
+    // , screenshot: null
   });
 
   const [errors, setErrors] = useState({});
 
-  const handleChange = (e) => {
-    if (e.target.name === "screenshot") {
-      setForm({ ...form, screenshot: e.target.files[0] });
-    } else {
-      setForm({ ...form, [e.target.name]: e.target.value });
-    }
+  const handleChange = e => {
+    if (e.target.name === "screenshot") setForm({...form, screenshot: e.target.files[0]});
+    else setForm({...form, [e.target.name]: e.target.value});
   };
 
   const validateForm = () => {
-    let newErrors = {};
-
-    // Name
-    if (!form.name.trim()) {
-      newErrors.name = "Name is required";
-    } else if (form.name.length < 3) {
-      newErrors.name = "Name must be at least 3 characters";
-    }
-
-    // Email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!form.email) {
-      newErrors.email = "Email is required";
-    } else if (!emailRegex.test(form.email)) {
-      newErrors.email = "Invalid email format";
-    }
-
-    // Mobile
-    const mobileRegex = /^[6-9]\d{9}$/;
-    if (!form.mobile) {
-      newErrors.mobile = "Mobile number is required";
-    } else if (!mobileRegex.test(form.mobile)) {
-      newErrors.mobile = "Enter valid 10 digit mobile number";
-    }
-
-    // Screenshot
-    if (!form.screenshot) {
-      newErrors.screenshot = "Screenshot is required";
-    } else if (!form.screenshot.type.startsWith("image/")) {
-      newErrors.screenshot = "Only image files allowed";
-    } else if (form.screenshot.size > 2 * 1024 * 1024) {
-      newErrors.screenshot = "Image size must be less than 2MB";
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    let e = {};
+    if (!form.name.trim()) e.name="Name required";
+    if (!form.email.trim()) e.email="Email required";
+    if (!/^[6-9]\d{9}$/.test(form.mobile)) e.mobile="Invalid mobile";
+    if (!form.course) e.course="Select course";
+    if (!form.college) e.college="College required";
+    if (!form.education) e.education="Education required";
+    if (!form.passoutYear) e.passoutYear="Passout year required";
+    if (!form.address) e.address="Address required";
+    if (!form.utrNo) e.utrNo="UTR required";
+    // if (!form.screenshot) e.screenshot="Payment screenshot required";
+    // else if (form.screenshot.size > 10*1024*1024) e.screenshot="Max size 10MB";
+    setErrors(e);
+    return Object.keys(e).length===0;
   };
 
-  const submit = async (e) => {
+  const submit = async e => {
     e.preventDefault();
-
     if (!validateForm()) return;
 
     const data = new FormData();
-    data.append("name", form.name);
-    data.append("email", form.email);
-    data.append("mobile", form.mobile);
+    Object.entries(form).forEach(([k,v])=>data.append(k,v));
     data.append("qrToken", token);
-    data.append("screenshot", form.screenshot);
 
     try {
-      await AdmissionForm.post("/api/admission", data);
-      alert("Admission Submitted Successfully!");
-      setForm({ name: "", email: "", mobile: "", screenshot: null });
-      setErrors({});
-    } catch (err) {
+      await AdmissionForm.post("/api/admission", data, {headers: {"Content-Type":"multipart/form-data"}});
+      alert("Admission submitted successfully!");
+      setForm({
+        name:"", email:"", mobile:"", course:"",
+        college:"", education:"", passoutYear:"",
+        address:"", utrNo:""
+        // , screenshot:null
+      });
+    } catch(err){
       console.error(err);
       alert("Error submitting form");
     }
@@ -94,43 +70,46 @@ export default function AdmissionForm() {
   return (
     <form className="admission-form" onSubmit={submit}>
       <h2>Admission Form</h2>
+      <img src="/images/paymetscanner.jpeg" width="350" height="200" alt="QR"/>
+      <h4>Scan QR & Pay → Upload Screenshot</h4>
 
-      <input
-        type="text"
-        name="name"
-        placeholder="Name"
-        value={form.name}
-        onChange={handleChange}
-      />
+      <input name="name" placeholder="Full Name" value={form.name} onChange={handleChange}/>
       {errors.name && <p className="error">{errors.name}</p>}
 
-      <input
-        type="email"
-        name="email"
-        placeholder="Email"
-        value={form.email}
-        onChange={handleChange}
-      />
+      <input name="email" placeholder="Email" value={form.email} onChange={handleChange}/>
       {errors.email && <p className="error">{errors.email}</p>}
 
-      <input
-        type="tel"
-        name="mobile"
-        placeholder="Mobile Number"
-        value={form.mobile}
-        onChange={handleChange}
-      />
+      <input name="mobile" placeholder="Mobile" value={form.mobile} onChange={handleChange}/>
       {errors.mobile && <p className="error">{errors.mobile}</p>}
 
-      <input
-        type="file"
-        name="screenshot"
-        accept="image/*"
-        onChange={handleChange}
-      />
-      {errors.screenshot && <p className="error">{errors.screenshot}</p>}
+      <select name="course" value={form.course} onChange={handleChange}>
+        <option value="">Select Course</option>
+        <option>Java Full Stack</option>
+        <option>Python Full Stack</option>
+        <option>MERN Stack</option>
+      </select>
+      {errors.course && <p className="error">{errors.course}</p>}
+
+      <input name="college" placeholder="College Name" value={form.college} onChange={handleChange}/>
+      {errors.college && <p className="error">{errors.college}</p>}
+
+      <input name="education" placeholder="Education (BSc/BE/Diploma)" value={form.education} onChange={handleChange}/>
+      {errors.education && <p className="error">{errors.education}</p>}
+
+      <input name="passoutYear" placeholder="Passout Year" value={form.passoutYear} onChange={handleChange}/>
+      {errors.passoutYear && <p className="error">{errors.passoutYear}</p>}
+
+      <textarea name="address" placeholder="Address" value={form.address} onChange={handleChange}/>
+      {errors.address && <p className="error">{errors.address}</p>}
+
+      <input name="utrNo" placeholder="UTR / Transaction ID" value={form.utrNo} onChange={handleChange}/>
+      {errors.utrNo && <p className="error">{errors.utrNo}</p>}
+
+      {/* <input type="file" name="screenshot" accept="image/*" onChange={handleChange}/>
+      {errors.screenshot && <p className="error">{errors.screenshot}</p>} */}
 
       <button type="submit">Submit</button>
     </form>
   );
 }
+

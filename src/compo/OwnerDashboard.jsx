@@ -1,24 +1,29 @@
-
-import { useEffect, useState } from "react";
 import axios from "axios";
-import "./OwnerDashboard.css";
+import { useEffect, useState } from "react";
+
+const api = axios.create({
+  baseURL: import.meta.env.VITE_API_BASE_URL,
+});
 
 export default function OwnerDashboard() {
-
-  const [admissions, setAdmissions] = useState([]);
-  const OwnerDashboard = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL,
-  // headers: {
-  //   "Content-Type": "application/json",
-  // },
-});
+  const [pending, setPending] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const fetchPending = async () => {
     try {
-      const res = await OwnerDashboard.get("/api/admission/pending");
-      setAdmissions(res.data);
+      const res = await api.get("/api/admission/pending");
+
+      // SAFETY: ensure array
+      if (Array.isArray(res.data)) {
+        setPending(res.data);
+      } else {
+        setPending([]);
+      }
     } catch (err) {
-      console.error(err);
+      console.error("Fetch pending error:", err);
+      alert("Pending data load failed");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -26,62 +31,64 @@ export default function OwnerDashboard() {
     fetchPending();
   }, []);
 
-  const approveAdmission = async (id) => {
+  const updateStatus = async (id, status) => {
     try {
-      await OwnerDashboard.put(`/api/admission/${id}`, {
-        status: "Completed",
-      });
+      await api.put(`/api/admission/status/${id}?status=${status}`);
       fetchPending();
     } catch (err) {
       console.error(err);
+      alert("Status update failed");
     }
   };
 
-  const deleteAdmission = async (id) => {
-    try {
-      await OwnerDashboard.delete(`/api/admission/${id}`);
-      fetchPending();
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  if (loading) return <h3>Loading...</h3>;
 
   return (
-    <div className="owner-dashboard">
+    <div style={{ padding: "20px" }}>
       <h2>Pending Admissions</h2>
 
-      {admissions.length === 0 && (
-        <p className="no-data">No pending admissions</p>
-      )}
+      {pending.length === 0 && <p>No pending admissions</p>}
 
-      {admissions.map((a) => (
-        <div className="card" key={a.id}>
+      {pending.map((a) => (
+        <div
+          key={a.id}
+          style={{
+            border: "1px solid #ccc",
+            marginBottom: "20px",
+            padding: "15px",
+            borderRadius: "8px",
+          }}
+        >
           <p><b>Name:</b> {a.name}</p>
           <p><b>Email:</b> {a.email}</p>
           <p><b>Mobile:</b> {a.mobile}</p>
-          <p><b>Token:</b> {a.qrToken}</p>
+          <p><b>Course:</b> {a.course}</p>
+          <p><b>College:</b> {a.college}</p>
+          <p><b>UTR:</b> {a.utrNo}</p>
           <p><b>Status:</b> {a.status}</p>
 
-          {a.screenshot && (
+          {/* ✅ SCREENSHOT SAFE RENDER */}
+          {/* {a.screenshot && (
             <img
-              src={`data:image/png;base64,${a.screenshot}`}
-              alt="Screenshot"
+              src={`data:image/jpeg;base64,${a.screenshot}`}
+              alt="Payment Screenshot"
+              style={{
+                width: "250px",
+                marginTop: "10px",
+                border: "1px solid #999",
+              }}
             />
-          )}
+          )} */}
 
-          <div className="actions">
-            <button
-              className="approve"
-              onClick={() => approveAdmission(a.id)}
-            >
+          <div style={{ marginTop: "10px" }}>
+            <button onClick={() => updateStatus(a.id, "Approved")}>
               Approve
             </button>
-
             <button
-              className="delete"
-              onClick={() => deleteAdmission(a.id)}
+              onClick={() => updateStatus(a.id, "Rejected")}
+              style={{ marginLeft: "10px" }}
             >
-              Delete
+              Reject
             </button>
           </div>
         </div>

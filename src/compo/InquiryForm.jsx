@@ -99,7 +99,7 @@ function InquiryForm() {
       <ul>
         <li><h5>Scan the QR code</h5></li>
         <li><h5>and confirm the admission</h5></li>
-         <img src="/images/frame.png" width="200" />
+         <img src="/images/qr-code.jpg" width="200" />
       </ul>
 
       {/* RIGHT SIDE */}

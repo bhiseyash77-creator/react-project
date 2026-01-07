@@ -49,6 +49,7 @@ function Naavbar({ isLogin, setIsLogin }) {
             <Link className="btn btn-outline-success me-2" to="/add">Add Student</Link>
             <Link className="btn btn-outline-warning me-2" to="/pending">Pending</Link>
             <Link className="btn btn-outline-warning me-2" to="/students">View</Link>
+            <Link className="btn btn-outline-warning me-2" to="/owner">OwnerDashboard</Link>
 
             <button
               className="btn btn-danger"
