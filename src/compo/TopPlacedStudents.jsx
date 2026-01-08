@@ -13,13 +13,16 @@ function TopPlacedStudents() {
      { name: "Aishwarya", role: "DevOps Engineer", company: "Infosys", package: "17 LPA", img: "/images/s8.jpeg" },
     { name: "Geeta Bhagnwant", role: "Java Developer", company: "IBM", package: "16.50 LPA", img: "/images/s4.jpeg" },
     { name: "Payal Thakare", role: "Frontend Developer", company: "Meta", package: "17 LPA", img: "/images/s16.jpeg" },
-    { name: "Sagar Zirmire", role: "Automation software testing", company: "paytm", package: "21 LPA", img: "/images/s13.jpeg" },
+    { name: "Sagar Zirmire", role: "Automation Test Engineer", company: "JP Morgan", package: "21 LPA", img: "/images/sagar.jpeg" },
     { name: "Pranali kathar", role: "Data Engineer", company: "Oracle", package: "16.50 LPA", img: "/images/s7.jpeg" },
     { name: "Shilpa Dongre", role: "AI Engineer", company: "Tesla", package: "17", img: "/images/s10.jpeg" },
      { name: "Prashik Ingle", role: "AI Engineer", company: "ZOHO", package: "17", img: "/images/s11.jpeg" },
      { name: "Gaurav Wankhade", role: "Cloud Engineer", company: "AWS", package: "17", img: "/images/s12.jpeg" },
      { name: "rahul gadhave", role: "Java Developer", company: "Google", package: "16.20", img: "/images/s14.jpeg" },
      { name: "vikas  jogdand", role: "java Developer", company: "zoho", package: "16", img: "/images/s15.jpeg" },
+     { name: "Chetan More ", role: "java Developer", company: "Tesla", package: "16.50", img: "/images/chaitan.jpeg" },
+      { name: "Nakul pawar ", role: "java Developer", company: "Oracle", package: "16.50", img: "/images/nakul.jpeg" },
+       { name: "Rohit patil ", role: "Frontend Developer", company: "IBM", package: "17", img: "/images/Rohit.jpeg" },
   ];
 
   return (

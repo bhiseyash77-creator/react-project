@@ -17,7 +17,7 @@ export default function AdmissionForm() {
     name: "", email: "", mobile: "",
     course: "", college: "", education: "",
     passoutYear: "", address: "", utrNo: ""
-    // , screenshot: null
+    , screenshot: null
   });
 
   const [errors, setErrors] = useState({});
