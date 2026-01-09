@@ -16,13 +16,17 @@ function TopPlacedStudents() {
     { name: "Sagar Zirmire", role: "Automation Test Engineer", company: "JP Morgan", package: "21 LPA", img: "/images/sagar.jpeg" },
     { name: "Pranali kathar", role: "Data Engineer", company: "Oracle", package: "16.50 LPA", img: "/images/s7.jpeg" },
     { name: "Shilpa Dongre", role: "AI Engineer", company: "Tesla", package: "17", img: "/images/s10.jpeg" },
+           { name: "nikita jadhav ", role: "Automation Test Engineer", company: "IBM", package: "17", img: "/images/nikita.png" },
+       { name: "Ajinkya chandankhede ", role: "Automation Test Engineer", company: "Xoriant", package: "17", img: "/images/ajinkya.png" },
      { name: "Prashik Ingle", role: "AI Engineer", company: "ZOHO", package: "17", img: "/images/s11.jpeg" },
      { name: "Gaurav Wankhade", role: "Cloud Engineer", company: "AWS", package: "17", img: "/images/s12.jpeg" },
      { name: "rahul gadhave", role: "Java Developer", company: "Google", package: "16.20", img: "/images/s14.jpeg" },
      { name: "vikas  jogdand", role: "java Developer", company: "zoho", package: "16", img: "/images/s15.jpeg" },
-     { name: "Chetan More ", role: "java Developer", company: "Tesla", package: "16.50", img: "/images/chaitan.jpeg" },
-      { name: "Nakul pawar ", role: "java Developer", company: "Oracle", package: "16.50", img: "/images/nakul.jpeg" },
-       { name: "Rohit patil ", role: "Frontend Developer", company: "IBM", package: "17", img: "/images/Rohit.jpeg" },
+     { name: "Chetan More ", role: "java Developer", company: "Tesla", package: "16", img: "/images/chaitan.jpeg" },
+      { name: "Nakul pawar ", role: "java Developer", company: "Oracle", package: "16", img: "/images/nakul.jpeg" },
+       { name: "Rohit patil ", role: "Frontend Developer", company: "IBM", package: "16", img: "/images/Rohit.jpeg" },
+      //  { name: "nikita jadhav ", role: "Automation Test Engineer", company: "IBM", package: "17", img: "/images/nikita.png" },
+      //  { name: "Ajinkya chandankhede ", role: "Automation Test Engineer", company: "Xoriant", package: "17", img: "/images/ajinkya.png" },
   ];
 
   return (
