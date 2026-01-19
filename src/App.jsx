@@ -49,6 +49,7 @@ function App() {
             {isLogin && <Route path="/pending" element={<Pending />} />}
             {isLogin && <Route path="/students" element={<Students />} />}
              {isLogin && <Route path="/owner" element={<OwnerDashboard/>}/>}
+             
           </Routes>
         </div>
 

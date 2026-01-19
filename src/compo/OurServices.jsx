@@ -96,9 +96,9 @@ function OurServices() {
 
           {/* Mock Interviews */}
           <div className="col-md-4 mb-4 animate__animated animate__zoomIn">
-            <div className="card shadow h-100 border-0">
+            <div className="card shadow h-80 border-0">
               <img
-                src="https://www.cheggindia.com/wp-content/uploads/2021/02/CG10150_featured.jpg"
+                src="https://tse2.mm.bing.net/th/id/OIP.gD1TNGZW6M8qZwAuiDXF6wHaE2?pid=Api&P=0&h=180"
                 className="card-img-top"
                 alt="Mock Interview"
               />
