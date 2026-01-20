@@ -18,7 +18,7 @@ function TopPlacedStudents() {
     { name: "Shilpa Dongre", role: "AI Engineer", company: "Tesla", package: "17", img: "/images/s10.jpeg" },
            { name: "nikita jadhav ", role: "Automation Test Engineer", company: "IBM", package: "17", img: "/images/nikita.png" },
        { name: "Ajinkya chandankhede ", role: "Automation Test Engineer", company: "Xoriant", package: "17", img: "/images/ajinkya.png" },
-     { name: "Prashik Ingle", role: "Automation Test Engineer", company: "Google", package: "21", img: "/images/s11.jpeg" },
+     { name: "Prashik Ingle", role: "Automation Test Engineer", company: "Google", package: "59", img: "/images/s11.jpeg" },
      { name: "Gaurav Wankhade", role: "Cloud Engineer", company: "AWS", package: "17", img: "/images/s12.jpeg" },
      { name: "rahul gadhave", role: "Java Developer", company: "Google", package: "16.20", img: "/images/s14.jpeg" },
      { name: "vikas  jogdand", role: "java Developer", company: "zoho", package: "16", img: "/images/s15.jpeg" },
