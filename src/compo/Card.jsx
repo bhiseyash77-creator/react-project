@@ -14,7 +14,7 @@ function Card() {
         <div className="col-md-4 mb-4">
           <div className="card shadow h-100">
             <img
-              src="https://www.irisesoft.in/wp-content/uploads/2024/08/Java-Full-Stack-Development-01-1-scaled.jpg"
+              src="/images/java.jpg"
               className="card-img-top"
               alt="Java"
             />
@@ -34,7 +34,7 @@ function Card() {
         <div className="col-md-4 mb-4">
           <div className="card shadow h-100">
             <img
-              src="https://www.irisesoft.in/wp-content/uploads/2024/08/Springboot-Training-01-01.jpg"
+              src="/images/SpringBoot.jpg"
               className="card-img-top"
               alt="Spring Boot"
             />
@@ -54,7 +54,7 @@ function Card() {
         <div className="col-md-4 mb-4">
           <div className="card shadow h-100">
             <img
-              src="https://www.irisesoft.in/wp-content/uploads/2024/08/React-JS-Training-01.jpg"
+               src="/images/react.png"
               className="card-img-top"
               alt="React"
             />
@@ -74,7 +74,7 @@ function Card() {
         <div className="col-md-4 mb-4">
           <div className="card shadow h-100">
             <img
-              src="https://www.irisesoft.in/wp-content/uploads/2024/08/Manual-Software-Testing-01-1.jpg"
+              src="/images/manualtesting.jpeg"
               className="card-img-top"
               alt="Manual Testing"
             />
@@ -94,7 +94,7 @@ function Card() {
         <div className="col-md-4 mb-4">
           <div className="card shadow h-100">
             <img
-              src="https://www.irisesoft.in/wp-content/uploads/2024/08/Automation-Software-Testing-01-1-scaled.jpg"
+               src="/images/automation.jpg"
               className="card-img-top"
               alt="Automation Testing"
             />
@@ -115,7 +115,7 @@ function Card() {
         <div className="col-md-4 mb-4">
           <div className="card shadow h-100">
             <img
-              src="https://www.irisesoft.in/wp-content/uploads/2024/08/Python-Training-01-1-scaled.jpg"
+               src="/images/Python.jpg"
               className="card-img-top"
               alt="Python"
             />

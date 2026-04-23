@@ -16,7 +16,8 @@ function Naavbar({ isLogin, setIsLogin }) {
     <nav className="navbar navbar-dark bg-dark px-3">
       <Link className="navbar-brand d-flex align-items-center" to="/">
     <img
-  src="https://www.irisesoft.in/wp-content/uploads/2024/08/logo-irise-1-300x120.png"
+  // src="https://www.irisesoft.in/wp-content/uploads/2024/08/logo-irise-1-300x120.png"
+   src="/images/iriselogo.png"
   alt="MyApp Logo"
   height="60"
   
